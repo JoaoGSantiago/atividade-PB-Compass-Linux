@@ -9,7 +9,7 @@ status_online=~/monitoracao_online.log
 status_offline=~/monitoracao_offline.log
 
 
-# Verifica o status do serviço
+# Verifica o status do nginx
 if systemctl is-active --quiet $servico; then
     echo "$tempo - $servico - ONLINE - Serviço está online." >> $status_online
 else
