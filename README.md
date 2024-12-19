@@ -1,6 +1,6 @@
 
 
-<h1>Configuração de Instância na AWS com Script de Monitoração Nginx</h1>
+<h1>Atividade de Linux PB - NOV 2024 | DevSecOps</h1>
 
 <nav>
     <ul>
