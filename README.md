@@ -96,7 +96,9 @@
     <li>Verifique o log de monitoramento online:
         <pre><code>cat monitoracao_online.log</code></pre>
         <p>Exemplo de saída:</p>
-        <img src="exemplo_saida_online.png" alt="Exemplo de saída online">
+        <div align="center">
+        <img src="https://github.com/user-attachments/assets/11511f61-8756-4eab-b1f1-52bc2e9fb91d" width="700px" />
+        </div>
     </li>
     <li>Para testar o monitoramento offline:
         <ul>
@@ -108,7 +110,9 @@
             </li>
         </ul>
         <p>Exemplo de saída:</p>
-        <img src="![Saída Online](https://github.com/user-attachments/assets/11511f61-8756-4eab-b1f1-52bc2e9fb91d)">
+        <div align="center">
+        <img src="https://github.com/user-attachments/assets/05b842f8-193d-4eae-b8be-8c46e5f4caec" width="700px" />
+        </div>
     </li>
 </ol>
 
