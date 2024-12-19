@@ -1,5 +1,6 @@
 
-<h1>Atividade de Linux PB - NOV 2024 | DevSecOps</h1>
+
+<h1>Configuração de Instância na AWS com Script de Monitoração Nginx</h1>
 
 <nav>
     <ul>
@@ -95,7 +96,7 @@
     <li>Verifique o log de monitoramento online:
         <pre><code>cat monitoracao_online.log</code></pre>
         <p>Exemplo de saída:</p>
-        <pre><code>2024-12-19 15:30:00 Serviço Nginx está ONLINE</code></pre>
+        <img src="exemplo_saida_online.png" alt="Exemplo de saída online">
     </li>
     <li>Para testar o monitoramento offline:
         <ul>
@@ -107,6 +108,7 @@
             </li>
         </ul>
         <p>Exemplo de saída:</p>
-        <pre><code>2024-12-19 15:35:00 Serviço Nginx está OFFLINE</code></pre>
+        <img src="![Saída Online](https://github.com/user-attachments/assets/11511f61-8756-4eab-b1f1-52bc2e9fb91d)">
     </li>
 </ol>
+
