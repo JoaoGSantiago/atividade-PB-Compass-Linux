@@ -9,11 +9,19 @@
         <li><a href="#script-monitoração">3. Criando e Configurando o Script de Monitoração</a></li>
         <li><a href="#configuracao-cron">4. Configuração do Cron</a></li>
         <li><a href="#testando-script">5. Testando o Script e Configurações</a></li>
+        <li><a href="#versionamento">6. Versionar o Script</a></li>
     </ul>
 </nav>
 
-<h2 id="criar-instancia">1. Criação da Instância na AWS</h2>
+<h2 id="criar-instancia">1. Configuração e criação da Instância na AWS</h2>
+
 <ol>
+    <li>Procurar o serviço <strong>VPC</strong> e, realizer os seguintes passos:.</li>
+        <ul>
+            <li>No serviço <strong>Internet Gateway</strong> apertar <strong>Create Internet Gateway</strong></li>
+            <li>Após isso, associar a <strong>Internet Gateway</strong> em uma <strong>Route Table</strong></li>
+            <li>Clique em <strong>Add Route</strong> e colocar o <strong>Destination</strong> em 0.0.0.0/0(rota para qualquer destino) e o <strong>Target</strong> em <strong>Internet Gateway</strong></li>
+        </ul>
     <li>No dashboard do serviço <strong>EC2</strong>, clique em <strong>"Launch instances"</strong>.</li>
     <li>Configure:
         <ul>
@@ -95,10 +103,13 @@
     <li>Aguarde 5 minutos para o <strong>Cron</strong> executar o script.</li>
     <li>Verifique o log de monitoramento online:
         <pre><code>cat monitoracao_online.log</code></pre>
-        <p>Exemplo de saída:</p>
-        <div align="center">
-        <img src="https://github.com/user-attachments/assets/11511f61-8756-4eab-b1f1-52bc2e9fb91d" width="700px" />
-        </div>
+        <ul>
+            <li>Exemplo de saída:
+                <div align="center">
+                <img src="https://github.com/user-attachments/assets/11511f61-8756-4eab-b1f1-52bc2e9fb91d" width="700px" />
+                </div>
+            </li>
+        </ul>
     </li>
     <li>Para testar o monitoramento offline:
         <ul>
@@ -108,11 +119,28 @@
             <li>Após 5 minutos, verifique o log de monitoramento offline:
                 <pre><code>cat monitoracao_offline.log</code></pre>
             </li>
+            <li>Exemplo de saída:
+                <div align="center">
+                <img src="https://github.com/user-attachments/assets/05b842f8-193d-4eae-b8be-8c46e5f4caec" width="700px" />
+                </div>
+            </li>
         </ul>
-        <p>Exemplo de saída:</p>
-        <div align="center">
-        <img src="https://github.com/user-attachments/assets/05b842f8-193d-4eae-b8be-8c46e5f4caec" width="700px" />
-        </div>
     </li>
 </ol>
-
+<h2 id="versionamento">6. Versionando o Script</h2>
+<ol>
+    <li>Para fazer o versionamento do Script de monitoramento usa-se o <strong>Git</strong>.</li>
+    <li>Para versionar precisa fazer o passo a passo:
+        <pre><code>git init</code></pre>
+        <pre><code>git add script_status_nginx</code></pre>
+        <pre><code>git commit -m "commit do Script de monitoramento"</code></pre>
+    </li>
+    <li>Agora, hospedar o repositório remotamente com o <strong>GitHub</strong>:
+        <ul>
+            <li>Criar repositório no GitHub</li>
+            <li>Adicionar o repositório na máquina com:</li>
+            <pre><code>git remote add origin "https://github.com/JoaoGSantiago/atividade-PB-Compass-Linux.git"</code></pre>
+            <li>Enviar os arquivos para o repositório remoto</li>
+            <pre><code>git push -u origin main"</code></pre>
+        </ul>
+</ol>
