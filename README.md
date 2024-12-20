@@ -20,33 +20,33 @@
         <ul>
             <li>No serviço <strong>Internet Gateway</strong> apertar <strong>Create Internet Gateway</strong></li>
             <li>Após isso, associar a <strong>Internet Gateway</strong> em uma <strong>Route Table</strong></li>
-            <li>Clique em <strong>Add Route</strong> e colocar o <strong>Destination</strong> em 0.0.0.0/0(rota para qualquer destino) e o <strong>Target</strong> em <strong>Internet Gateway</strong></li>
+            <li>Clicar em <strong>Add Route</strong> e colocar o <strong>Destination</strong> em 0.0.0.0/0(rota para qualquer destino) e o <strong>Target</strong> em <strong>Internet Gateway</strong></li>
         </ul>
-    <li>No dashboard do serviço <strong>EC2</strong>, clique em <strong>"Launch instances"</strong>.</li>
+    <li>No dashboard do serviço <strong>EC2</strong>, clicar em <strong>"Launch instances"</strong>.</li>
     <li>Configure:
         <ul>
-            <li>Escolha a <strong>AMI</strong> (Amazon Machine Image).</li>
-            <li>Selecione o <strong>Instance type</strong>.</li>
-            <li>Configure o <strong>Key Pair</strong>.</li>
-            <li>Configure a <strong>Network</strong>, permitindo o <strong>SSH (porta 22)</strong> e <strong>HTTP (porta 80)</strong>.</li>
+            <li>Escolher a <strong>AMI</strong> (Amazon Machine Image).</li>
+            <li>Selecionar o <strong>Instance type</strong>.</li>
+            <li>Configurar o <strong>Key Pair</strong>.</li>
+            <li>Configurar a <strong>Network</strong>, permitir o <strong>SSH (porta 22)</strong> e <strong>HTTP (porta 80)</strong>.</li>
         </ul>
     </li>
-    <li>Finalize clicando em <strong>"Launch Instance"</strong>.</li>
+    <li>Finalizar clicando em <strong>"Launch Instance"</strong>.</li>
 </ol>
 
 <h2 id="configuracao-instancia">2. Configuração da Instância</h2>
 <ol>
-    <li>Faça o download do <strong>Key Pair</strong> associado à instância.</li>
-    <li>Altere a permissão da chave para que seja somente leitura para o usuário root:
+    <li>Fazer o download do <strong>Key Pair</strong> associado à instância.</li>
+    <li>Alterar a permissão da chave para que seja somente leitura para o usuário root:
         <pre><code>chmod 400 KeyProjeto.pem</code></pre>
     </li>
-    <li>Conecte-se à instância via SSH:
+    <li>Conectar à instância via SSH:
         <pre><code>ssh -i KeyProjeto.pem ec2-user@&lt;IP-da-instância&gt;</code></pre>
     </li>
-    <li>Instale o serviço <strong>Nginx</strong>:
+    <li>Instalar o serviço <strong>Nginx</strong>:
         <pre><code>sudo yum install nginx</code></pre>
     </li>
-    <li>Ative e verifique o serviço Nginx:
+    <li>Ativar e verificar o serviço Nginx:
         <pre><code>sudo systemctl start nginx</code></pre>
         <pre><code>sudo systemctl enable nginx</code></pre>
     </li>
@@ -54,8 +54,8 @@
 
 <h2 id="script-monitoração">3. Criando e Configurando o Script de Monitoração</h2>
 <ol>
-    <li>Crie um script para monitorar o estado do Nginx, verificando se está <strong>online</strong> ou <strong>offline</strong>.</li>
-    <li>Utilize o comando <strong>date</strong> para capturar o timestamp nos logs:
+    <li>Criar um script para monitorar o estado do Nginx, verificando se está <strong>online</strong> ou <strong>offline</strong>.</li>
+    <li>Utilizar o comando <strong>date</strong> para capturar o timestamp nos logs:
         <ul>
             <li>%Y: ano</li>
             <li>%m: mês</li>
@@ -65,20 +65,20 @@
             <li>%S: segundos</li>
         </ul>
     </li>
-    <li>Configure as variáveis <strong>status_online</strong> e <strong>status_offline</strong> para registrar em logs distintos.</li>
-    <li>No script, use o comando <strong>systemctl</strong> para verificar o status do serviço:
+    <li>Configurar as variáveis <strong>status_online</strong> e <strong>status_offline</strong> para registrar em logs distintos.</li>
+    <li>No script, usar o comando <strong>systemctl</strong> para verificar o status do serviço:
         <ul>
             <li><strong>is-active</strong>: retorna se o serviço está ativo.</li>
             <li><strong>--quiet</strong>: fornece apenas o código de saída.</li>
         </ul>
     </li>
-    <li>Faça o script registrar os logs:
+    <li>Fazer o script registrar os logs:
         <ul>
             <li>Online: <strong>monitoracao_online.log</strong>.</li>
             <li>Offline: <strong>monitoracao_offline.log</strong>.</li>
         </ul>
     </li>
-    <li>Torne o script executável:
+    <li>Tornar o script executável:
         <pre><code>chmod +x script_status_nginx.sh</code></pre>
     </li>
 </ol>
@@ -86,22 +86,22 @@
 <h2 id="configuracao-cron">4. Configuração do Cron</h2>
 <ol>
     <li><strong>Cron</strong> permite agendar a execução automática de tarefas no Linux.</li>
-    <li>Edite o arquivo <strong>crontab</strong>:
+    <li>Editar o arquivo <strong>crontab</strong>:
         <pre><code>crontab -e</code></pre>
     </li>
-    <li>Adicione o seguinte código para executar o script a cada 5 minutos:
+    <li>Adicionar o seguinte código para executar o script a cada 5 minutos:
         <pre><code>*/5 * * * * bash ~/script_status_nginx.sh</code></pre>
     </li>
-    <li>Salve e feche o arquivo.</li>
-    <li>Ative o serviço Cron:
+    <li>Salvar e fechar o arquivo.</li>
+    <li>Ativar o serviço Cron:
         <pre><code>sudo systemctl start cron</code></pre>
     </li>
 </ol>
 
 <h2 id="testando-script">5. Testando o Script e Configurações</h2>
 <ol>
-    <li>Aguarde 5 minutos para o <strong>Cron</strong> executar o script.</li>
-    <li>Verifique o log de monitoramento online:
+    <li>Aguardar 5 minutos para o <strong>Cron</strong> executar o script.</li>
+    <li>Verificar o log de monitoramento online:
         <pre><code>cat monitoracao_online.log</code></pre>
         <ul>
             <li>Exemplo de saída:
@@ -113,10 +113,10 @@
     </li>
     <li>Para testar o monitoramento offline:
         <ul>
-            <li>Pare o serviço Nginx:
+            <li>Parar o serviço Nginx:
                 <pre><code>sudo systemctl stop nginx</code></pre>
             </li>
-            <li>Após 5 minutos, verifique o log de monitoramento offline:
+            <li>Após 5 minutos, verificar o log de monitoramento offline:
                 <pre><code>cat monitoracao_offline.log</code></pre>
             </li>
             <li>Exemplo de saída:
