@@ -22,8 +22,7 @@
             <li>Após isso, associar a <strong>Internet Gateway</strong> em uma <strong>Route Table</strong></li>
             <li>Clicar em <strong>Add Route</strong> e colocar o <strong>Destination</strong> em 0.0.0.0/0(rota para qualquer destino) e o <strong>Target</strong> em <strong>Internet Gateway</strong></li>
         </ul>
-    <li>No dashboard do serviço <strong>EC2</strong>, clicar em <strong>"Launch instances"</strong>.</li>
-    <li>Configure:
+    <li>No dashboard do serviço <strong>EC2</strong>, clicar em <strong>"Launch instances"</strong> e configurar:.
         <ul>
             <li>Escolher a <strong>AMI</strong> (Amazon Machine Image).</li>
             <li>Selecionar o <strong>Instance type</strong>.</li>
