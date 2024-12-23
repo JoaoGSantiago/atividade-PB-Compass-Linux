@@ -31,6 +31,9 @@
 <h2 id="criar-instancia">1. Configuração e criação da Instância na AWS</h2>
     <ol>
         <li>Procure o serviço <strong>VPC</strong> e realize os seguintes passos para conseguir o acesso à internet:
+        <div>
+                <img src="https://github.com/user-attachments/assets/f2c046df-3cd0-47c1-a6fa-91e08c95c4c0" width="700px" />
+                </div>
             <ul>
                 <li>No serviço <strong>Internet Gateway</strong>, clique em <strong>Create Internet Gateway</strong>.</li>
                 <li>Associe o <strong>Internet Gateway</strong> em uma <strong>Route Table</strong>.</li>
@@ -74,6 +77,9 @@
         <pre><code>sudo systemctl start nginx</code></pre>
         <pre><code>sudo systemctl enable nginx</code></pre>
     </li>
+    <li>Com isso, o serviço vai estar rodando normalmente</li>
+    <div> <img src="https://github.com/user-attachments/assets/085bd7aa-2af5-40b0-8ed5-eee9431293ce" width="700px" /> </div>
+    
 </ol>
 
 <h2 id="script-monitoração">3. Criando e Configurando o Script de Monitoração</h2>
