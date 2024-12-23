@@ -4,6 +4,7 @@
 
 <nav>
     <ul>
+        <li><a href="#instalação-wsl">0. Instalação da WSL</a></li>
         <li><a href="#criar-instancia">1. Criação da Instância na AWS</a></li>
         <li><a href="#configuracao-instancia">2. Configuração da Instância</a></li>
         <li><a href="#script-monitoração">3. Criando e Configurando o Script de Monitoração</a></li>
@@ -12,6 +13,20 @@
         <li><a href="#versionamento">6. Versionar o Script</a></li>
     </ul>
 </nav>
+
+<h2 id="instalação-wsl">0. Instalação da WSL no windows</h2>
+    <ol>
+        <li>Acesse o <strong>PowerShell</strong> como Administrador.</li>
+        <li>Execute o seguinte comando para instalar e configurar a WSL:
+            <pre><code>wsl --install</code></pre>
+        <li>Aguarde a instalação e reinicie o computador, se solicitado.</li>
+        <li>Após isso, instale o Ubuntu na versão 20.04:
+                <pre><code>wsl --instal -d Ubunutu-20.04</code></pre>
+            </li>
+        <li>Certifique-se de que a WSL com o Ubuntu está instalada corretamente verificando a versão:
+            <pre><code>wsl --list --verbose</code></pre>
+        </li>
+    </ol>
 
 <h2 id="criar-instancia">1. Configuração e criação da Instância na AWS</h2>
     <ol>
