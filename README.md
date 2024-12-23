@@ -63,7 +63,7 @@
     </ol>
 <h2 id="configuracao-instancia">2. Configuração da Instância</h2>
 <ol>
-    <li>Agora, para fazer o download do <strong>Key Pair</strong> associado à instância.</li>
+    <li>Faça o download do <strong>Key Pair</strong> associado à instância.</li>
     <li>Altere a permissão da chave para que seja somente leitura para o usuário root:
         <pre><code>chmod 400 KeyProjeto.pem</code></pre>
     </li>
@@ -77,7 +77,7 @@
         <pre><code>sudo systemctl start nginx</code></pre>
         <pre><code>sudo systemctl enable nginx</code></pre>
     </li>
-    <li>Com isso, o serviço vai estar rodando normalmente</li>
+    <li>Com o serviço rodando, a saída esperada ao executar do nginx:</li>
     <div> <img src="https://github.com/user-attachments/assets/085bd7aa-2af5-40b0-8ed5-eee9431293ce" width="700px" /> </div>
     
 </ol>
@@ -115,7 +115,7 @@
 
 <h2 id="configuracao-cron">4. Configuração do Cron</h2>
 <ol>
-    <li>o Comando <strong>Cron</strong> permite agendar a execução automática de tarefas no Linux.</li>
+    <li>O comando <strong>Cron</strong> permite agendar a execução automática de tarefas no Linux.</li>
     <li>Edite o arquivo <strong>crontab</strong> usando:
         <pre><code>crontab -e</code></pre>
     </li>
